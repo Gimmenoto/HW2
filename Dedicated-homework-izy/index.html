@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dedicated Worker Side-by-Side</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            transition: background 0.3s;
+            display: flex;
+            
+            overflow: hidden;
+        }
+
+         img {
+            height: 200px;
+            position: sticky;
+            top: 0;
+        }
+
+        #img-container {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 600px;
+            margin:  20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #btn-test {
+            background: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .btn-no-worker {
+            background: #dc3545;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .btn-worker {
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-weight: bold;
+            min-height: 24px;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin : 0px;
+        }
+
+        .animate {
+            animation: anim 0.5s ease-out 3;
+                }
+
+
+        @keyframes anim{
+                0% { transform: rotate(0deg); }
+                25% { transform: rotate(-10deg); }
+                50% { transform: rotate(10deg); }
+                75% { transform: rotate(-10deg); }
+                100% { transform: rotate(0deg); }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Worker Comparison Demo</h2>
+
+        <button id="btn-test">
+            Test UI Responsiveness
+        </button>
+
+        <hr>
+
+        <button id="noWorkerBtn" class="btn-no-worker">NO Worker</button>
+        <button id="workerBtn" class="btn-worker">Dedicated Worker</button>
+
+        <div class="status" id="statusDisplay">Ready for testing</div>
+    </div>
+
+    <div id = "img-container">
+        <img src = "https://media.tenor.com/3Cs_AKNDxRwAAAAM/gato-lengua.gif" alt="silly cat :p">
+        a text in case img doesnt load
+    </div>
+   
+
+    <script src="main.js"></script>
+</body>
+
+</html>
