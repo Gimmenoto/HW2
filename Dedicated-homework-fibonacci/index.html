@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dedicated Worker Side-by-Side</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 40px;
+            transition: background 0.3s;
+            background-color: #8CA9FF;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background: #AAC4F5;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .refresh-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-bottom: 20px;
+        }
+
+        .refresh-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .spin-refresh {
+            animation: spin 0.5s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .btn-no-worker {
+            background: #dc3545;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .btn-worker {
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-weight: bold;
+            min-height: 24px;
+        }
+
+        .fib-input-group {
+            margin: 15px 0;
+        }
+
+        .fib-input-group input {
+            padding: 8px;
+            font-size: 14px;
+            width: 100px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Worker Comparison Homework</h2>
+
+        <div class="refresh-icon" id="refreshIcon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#007bff" stroke-width="2">
+                <path d="M23 4v6h-6M1 20v-6h6" />
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+            </svg>
+        </div>
+
+        <div class="fib-input-group">
+            <label>Fibonacci n: </label>
+            <input type="number" id="fibInput" value="40" min="1" max="43">
+        </div>
+
+        <hr>
+
+        <button id="noWorkerBtn" class="btn-no-worker">NO Worker</button>
+        <button id="workerBtn" class="btn-worker">Dedicated Worker</button>
+
+        <div class="status" id="statusDisplay">Ready for testing</div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
